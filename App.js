@@ -7,6 +7,9 @@ import Orders from "./src/Orders";
 import Navigator from "./src/Navigator";
 import Categories from "./src/Categories";
 import Suppliers from "./src/Suppliers";
+import OrdersDetail from "./src/OrdersDetail";
+import SuppliersDetail from "./src/SuppliersDetail";
+import CategoriesDetail from "./src/CategoriesDetail";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -22,10 +25,10 @@ export default function App() {
           />
           <Stack.Screen name='Orders' component={Orders} />
           <Stack.Screen name='Suppliers' component={Suppliers} />
+          <Stack.Screen name='OrdersDetail' component={OrdersDetail} />
+          <Stack.Screen name='SuppliersDetail' component={SuppliersDetail} />
+          <Stack.Screen name='CategoriesDetail' component={CategoriesDetail} />
         </Stack.Navigator>
-        <Categories></Categories>
-        <Orders></Orders>
-        <Suppliers></Suppliers>
       </NavigationContainer>
     </>
   );

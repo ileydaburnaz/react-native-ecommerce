@@ -8,7 +8,7 @@ import Suppliers from "./Suppliers";
 
 const Tab = createBottomTabNavigator();
 
-const Navigator = () => {
+const Navigator = ({ navigation }) => {
   return (
     <>
       <Tab.Navigator>
@@ -18,17 +18,22 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Categories",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name='home-outline' color={color} size={size} />
+              <Ionicons name='copy-outline' color={color} size={size} />
             ),
           }}
         />
+
         <Tab.Screen
           name='Orders'
           component={Orders}
           options={{
             tabBarLabel: "Orders",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name='home-outline' color={color} size={size} />
+              <Ionicons
+                name='reorder-three-outline'
+                color={color}
+                size={size}
+              />
             ),
           }}
         />
@@ -38,7 +43,7 @@ const Navigator = () => {
           options={{
             tabBarLabel: "Suppliers",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name='home-outline' color={color} size={size} />
+              <Ionicons name='person-outline' color={color} size={size} />
             ),
           }}
         />
