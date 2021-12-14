@@ -14,14 +14,14 @@ const Suppliers = () => {
   }, []);
   return (
     <>
-      <View>
+      <ScrollView>
         {suppliers &&
           suppliers.map((item, key) => (
             <Card key={key}>
               <Card.Title>{item.companyName}</Card.Title>
             </Card>
           ))}
-      </View>
+      </ScrollView>
     </>
   );
 };

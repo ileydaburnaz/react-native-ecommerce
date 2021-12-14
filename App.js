@@ -24,9 +24,6 @@ export default function App() {
           <Stack.Screen name='Orders' component={Orders} />
           <Stack.Screen name='Suppliers' component={Suppliers} />
         </Stack.Navigator>
-        <Categories></Categories>
-        <Orders></Orders>
-        <Suppliers></Suppliers>
       </NavigationContainer>
     </>
   );
