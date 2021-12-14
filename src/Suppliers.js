@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, ScrollView, StyleSheet } from "react-native";
-import { View, Text, FlatList, ScrollView } from "react-native";
 import { Card } from "react-native-elements";
 import { Button } from "react-native-elements/dist/buttons/Button";
 

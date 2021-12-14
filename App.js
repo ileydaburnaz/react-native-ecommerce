@@ -26,9 +26,21 @@ export default function App() {
 
           <Stack.Screen name='Orders' component={Orders} />
           <Stack.Screen name='Suppliers' component={Suppliers} />
-          <Stack.Screen name='OrdersDetail' component={OrdersDetail} />
-          <Stack.Screen name='SuppliersDetail' component={SuppliersDetail} />
-          <Stack.Screen name='CategoriesDetail' component={CategoriesDetail} />
+          <Stack.Screen
+            name='OrdersDetail'
+            component={OrdersDetail}
+            options={{ title: "Orders Detail" }}
+          />
+          <Stack.Screen
+            name='SuppliersDetail'
+            component={SuppliersDetail}
+            options={{ title: "Suppliers Detail" }}
+          />
+          <Stack.Screen
+            name='CategoriesDetail'
+            component={CategoriesDetail}
+            options={{ title: "Categories Detail" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
