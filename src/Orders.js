@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ScrollView } from "react-native";
 import { Card } from "react-native-elements";
 
 const Orders = () => {
@@ -14,14 +14,14 @@ const Orders = () => {
   }, []);
   return (
     <>
-      <View>
+      <ScrollView>
         {product &&
           product.map((item, key) => (
             <Card key={key}>
               <Card.Title>{item.shipName}</Card.Title>
             </Card>
           ))}
-      </View>
+      </ScrollView>
     </>
   );
 };
