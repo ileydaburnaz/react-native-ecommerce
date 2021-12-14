@@ -17,12 +17,13 @@ export default function App() {
     <>
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Navigator'>
-          <Stack.Screen name='Categories' component={Categories} />
           <Stack.Screen
             name='Navigator'
             component={Navigator}
             options={{ headerShown: false }}
           />
+          <Stack.Screen name='Categories' component={Categories} />
+
           <Stack.Screen name='Orders' component={Orders} />
           <Stack.Screen name='Suppliers' component={Suppliers} />
           <Stack.Screen name='OrdersDetail' component={OrdersDetail} />
