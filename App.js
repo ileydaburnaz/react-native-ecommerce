@@ -5,23 +5,23 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import Orders from "./src/Orders";
 import Navigator from "./src/Navigator";
+import Categories from "./src/Categories";
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='AppTabNavigator'>
+        <Stack.Navigator initialRouteName='Orders'>
           <Stack.Screen
             name='Navigator'
             component={Navigator}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name='Orders'
-            component={Orders}
-            options={{ title: "Orders Screen" }}
-          />
+          <Stack.Screen name='Orders' component={Orders} />
+          <Stack.Screen name='Categories' component={Categories} />
         </Stack.Navigator>
+        <Categories></Categories>
       </NavigationContainer>
     </>
   );
