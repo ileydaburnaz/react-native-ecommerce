@@ -1,12 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Product from "./src/Product";
+//import Product from "./src/Product";
+import Categories from "./src/Categories";
+
 
 export default function App() {
   return (
     <>
-      <Product></Product>
+    
+      <Categories></Categories>
     </>
   );
 }
@@ -17,5 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+ 
+
   },
 });
