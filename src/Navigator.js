@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import Orders from "./Orders";
 import Categories from "./Categories";
+import Suppliers from "./Suppliers";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,6 +12,16 @@ const Navigator = () => {
   return (
     <>
       <Tab.Navigator>
+        <Tab.Screen
+          name='Categories'
+          component={Categories}
+          options={{
+            tabBarLabel: "Categories",
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name='home-outline' color={color} size={size} />
+            ),
+          }}
+        />
         <Tab.Screen
           name='Orders'
           component={Orders}
@@ -22,10 +33,10 @@ const Navigator = () => {
           }}
         />
         <Tab.Screen
-          name='Categories'
-          component={Categories}
+          name='Suppliers'
+          component={Suppliers}
           options={{
-            tabBarLabel: "Categories",
+            tabBarLabel: "Suppliers",
             tabBarIcon: ({ color, size }) => (
               <Ionicons name='home-outline' color={color} size={size} />
             ),

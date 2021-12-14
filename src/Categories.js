@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ScrollView } from "react-native";
 import { Card } from "react-native-elements";
 
 const Categories = () => {
@@ -14,14 +14,14 @@ const Categories = () => {
   }, []);
   return (
     <>
-      <View>
+      <ScrollView>
         {categories &&
           categories.map((item, key) => (
             <Card key={key}>
               <Card.Title>{item.name}</Card.Title>
             </Card>
           ))}
-      </View>
+      </ScrollView>
     </>
   );
 };
