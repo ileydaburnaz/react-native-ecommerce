@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList } from "react-native";
 import { Card } from "react-native-elements";
 
-const Product = () => {
+const Orders = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Orders;

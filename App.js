@@ -1,12 +1,28 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Product from "./src/Product";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Orders from "./src/Orders";
+import Navigator from "./src/Navigator";
 
 export default function App() {
   return (
     <>
-      <Product></Product>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='AppTabNavigator'>
+          <Stack.Screen
+            name='Navigator'
+            component={Navigator}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name='Orders'
+            component={Orders}
+            options={{ title: "Orders Screen" }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }
