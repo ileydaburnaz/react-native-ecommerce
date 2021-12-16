@@ -16,6 +16,13 @@ const Orders = ({ navigation }) => {
   return (
     <>
       <ScrollView>
+        <View style={styles.btn}>
+          <Button
+            title='Add Orders'
+            onPress={() => navigation.navigate("OrdersForm")}
+            style={styles.button}
+          ></Button>
+        </View>
         {product &&
           product.map((item, key) => (
             <Card key={key}>
