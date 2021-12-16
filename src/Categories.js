@@ -15,7 +15,15 @@ const Categories = ({ navigation }) => {
   }, []);
   return (
     <>
+      
       <ScrollView>
+        <View style={styles.btn}>
+          <Button
+            title='Add Categories'
+            onPress={() => navigation.navigate("OrdersForm")}
+            style={styles.button}
+          ></Button>
+          </View>
         {categories &&
           categories.map((item, key) => (
             <Card key={key}>

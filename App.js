@@ -11,6 +11,9 @@ import OrdersDetail from "./src/OrdersDetail";
 import SuppliersDetail from "./src/SuppliersDetail";
 import CategoriesDetail from "./src/CategoriesDetail";
 import OrdersForm from "./src/OrdersForm";
+import CategoriesForm from "./src/CategoriesForm";
+
+
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -46,6 +49,12 @@ export default function App() {
             name='OrdersForm'
             component={OrdersForm}
             options={{ title: "Orders Form" }}
+          />
+
+          <Stack.Screen
+            name='CategoriesForm'
+            component={CategoriesForm}
+            options={{ title: "Categories Form" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
