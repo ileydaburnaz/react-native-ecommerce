@@ -18,7 +18,7 @@ const Orders = ({ navigation }) => {
       <ScrollView>
         <View style={styles.btn}>
           <Button
-            title='Add Orders'
+            title='ADD ORDERS'
             onPress={() => navigation.navigate("OrdersForm")}
             style={styles.button}
           ></Button>
@@ -47,7 +47,9 @@ const Orders = ({ navigation }) => {
 const styles = StyleSheet.create({
   button: {
     width: 150,
-    backgroundColor: "black",
+    backgroundColor: "#F2CBC9",
+    borderRadius: 17,  
+    
   },
   btn: {
     flexDirection: "row",

@@ -16,6 +16,13 @@ const Suppliers = ({ navigation }) => {
   return (
     <>
       <ScrollView>
+        <View style={styles.btn}>
+          <Button
+            title='ADD A SUPPLIER'
+            onPress={() => navigation.navigate("SuppliersForm")}
+            style={styles.button}
+          ></Button>
+        </View>
         {suppliers &&
           suppliers.map((item, key) => (
             <Card key={key}>
