@@ -22,13 +22,18 @@ const SuppliersForm = ({ navigation }) => {
     fetch("https://northwind.vercel.app/api/suppliers", requestOptions)
       .then((res) => res.json())
       .then((data) => {
-        alert("Tebrikler, tedarikçi eklediniz!");
+        alert("Suppliers added");
       });
   };
   return (
     <>
       <Formik
-        initialValues={{ id: "", companyName: "", contactName: "", contactTitle: ""}}
+        initialValues={{
+          id: "",
+          companyName: "",
+          contactName: "",
+          contactTitle: "",
+        }}
         onSubmit={(values) => addSuppliers(values)}
       >
         {({ handleChange, handleSubmit, values }) => (
@@ -37,27 +42,31 @@ const SuppliersForm = ({ navigation }) => {
               onChangeText={handleChange("id")}
               value={values.id}
               placeholder='Id'
+              style={styles.input}
             />
             <TextInput
               onChangeText={handleChange("companyName")}
               value={values.companyName}
               placeholder='Company Name'
+              style={styles.input}
             />
 
             <TextInput
               onChangeText={handleChange("contactName")}
               value={values.contactName}
               placeholder='Contact Name'
+              style={styles.input}
             />
 
             <TextInput
               onChangeText={handleChange("contactTitle")}
               value={values.contactTitle}
               placeholder='Contact Title'
+              style={styles.input}
             />
             <View>
               <Button
-                title='ADD A SUPPLIER'
+                title='Add Suppliers'
                 onPress={handleSubmit}
                 style={styles.button}
               />
@@ -71,8 +80,16 @@ const SuppliersForm = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 150,
-    backgroundColor: "black",
+    color: "black",
+    marginHorizontal: 400,
+    margin: 9,
+  },
+  input: {
+    padding: 5,
+    borderWidth: 1,
+    margin: 9,
+    height: 50,
+    marginHorizontal: 400,
   },
 });
 

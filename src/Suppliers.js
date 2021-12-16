@@ -18,7 +18,7 @@ const Suppliers = ({ navigation }) => {
       <ScrollView>
         <View style={styles.btn}>
           <Button
-            title='ADD A SUPPLIER'
+            title='Add Suppliers'
             onPress={() => navigation.navigate("SuppliersForm")}
             style={styles.button}
           ></Button>
@@ -50,6 +50,9 @@ const styles = StyleSheet.create({
   button: {
     width: 150,
     backgroundColor: "black",
+    marginTop: 15,
+    marginBottom: 15,
+    borderRadius: 12,
   },
   btn: {
     flexDirection: "row",

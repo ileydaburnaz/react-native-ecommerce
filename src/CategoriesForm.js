@@ -22,13 +22,13 @@ const CategoriesForm = ({ navigation }) => {
     fetch("https://northwind.vercel.app/api/categories", requestOptions)
       .then((res) => res.json())
       .then((data) => {
-        alert("kategori eklendi");
+        alert("Category Added");
       });
   };
   return (
     <>
       <Formik
-        initialValues={{ id: "", description: "", name: ""}}
+        initialValues={{ id: "", description: "", name: "" }}
         onSubmit={(values) => addCategories(values)}
       >
         {({ handleChange, handleSubmit, values }) => (
@@ -37,17 +37,20 @@ const CategoriesForm = ({ navigation }) => {
               onChangeText={handleChange("id")}
               value={values.id}
               placeholder='Id'
+              style={styles.input}
             />
             <TextInput
               onChangeText={handleChange("description")}
               value={values.customerId}
               placeholder='Description'
+              style={styles.input}
             />
 
             <TextInput
               onChangeText={handleChange("name")}
               value={values.shipVia}
-              placeholder='name'
+              placeholder='Name'
+              style={styles.input}
             />
 
             <View>
@@ -66,8 +69,16 @@ const CategoriesForm = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 150,
-    backgroundColor: "black",
+    color: "black",
+    marginHorizontal: 400,
+    margin: 9,
+  },
+  input: {
+    padding: 5,
+    borderWidth: 1,
+    margin: 9,
+    height: 50,
+    marginHorizontal: 400,
   },
 });
 

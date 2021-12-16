@@ -43,7 +43,7 @@ const Navigator = ({ navigation }) => {
           options={{
             tabBarLabel: "Suppliers",
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name='person-outline' color={color} size={size} />
+              <Ionicons name='grid-outline' color={color} size={size} />
             ),
           }}
         />

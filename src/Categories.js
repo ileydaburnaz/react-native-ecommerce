@@ -19,7 +19,7 @@ const Categories = ({ navigation }) => {
         <View style={styles.btn}>
           <Button
             title='Add Categories'
-            onPress={() => navigation.navigate("OrdersForm")}
+            onPress={() => navigation.navigate("CategoriesForm")}
             style={styles.button}
           ></Button>
         </View>
@@ -48,8 +48,11 @@ const Categories = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
+    marginTop: 15,
+    marginBottom: 15,
     width: 150,
     backgroundColor: "black",
+    borderRadius: 12,
   },
   btn: {
     flexDirection: "row",
