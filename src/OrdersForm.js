@@ -5,7 +5,7 @@ import { Button } from "react-native-elements";
 import * as Yup from "yup";
 import { string } from "yup/lib/locale";
 
-const OrdersForm = ({ navigation }) => {
+const OrdersForm= ({ navigation }) => {
   const addOrders = (values) => {
     let requestOptions = {
       method: "POST",

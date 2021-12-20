@@ -1,9 +1,11 @@
 import React from "react";
-import { Formik } from "formik";
-import { View, TextInput, StyleSheet } from "react-native";
+import { Formik, useField } from "formik";
+import { View, TextInput, StyleSheet, Text } from "react-native";
 import { Button } from "react-native-elements";
+import * as Yup from "yup";
+import { string } from "yup/lib/locale";
 
-const CategoriesForm = ({ navigation }) => {
+const CategoriesForm= ({ navigation }) => {
   const addCategories = (values) => {
     let requestOptions = {
       method: "POST",
@@ -13,46 +15,66 @@ const CategoriesForm = ({ navigation }) => {
       },
       body: JSON.stringify({
         id: Number(values.id),
-        customerId: values.customerId,
-        shipVia: Number(values.shipVia),
-        freight: Number(values.freight),
+        description: values.description,
+        name: values.name,
+        
       }),
     };
 
     fetch("https://northwind.vercel.app/api/categories", requestOptions)
       .then((res) => res.json())
       .then((data) => {
-        alert("Category Added");
+        alert("Categories added");
       });
   };
+
+  const validate = Yup.object().shape({
+    id: Yup.number().required("İd is required"),
+    description: Yup.string().required("Description is required"),
+    name: Yup.string().required("Name is required"),
+    
+  });
+
   return (
     <>
       <Formik
-        initialValues={{ id: "", description: "", name: "" }}
+        initialValues={{ id: "", description: "", name: ""}}
         onSubmit={(values) => addCategories(values)}
+        validationSchema={validate}
       >
-        {({ handleChange, handleSubmit, values }) => (
+        {({ handleChange, handleSubmit, values, touched, isValid, errors }) => (
           <View>
             <TextInput
+              style={styles.input}
               onChangeText={handleChange("id")}
               value={values.id}
               placeholder='Id'
-              style={styles.input}
             />
+            {errors.id && touched.id && (
+              <Text style={styles.errorMessage}>{errors.id}</Text>
+            )}
+
             <TextInput
+              style={styles.input}
               onChangeText={handleChange("description")}
-              value={values.customerId}
+              value={values.description}
               placeholder='Description'
-              style={styles.input}
             />
+            {errors.description && touched.description && (
+              <Text style={styles.errorMessage}>{errors.description}</Text>
+            )}
 
             <TextInput
-              onChangeText={handleChange("name")}
-              value={values.shipVia}
-              placeholder='Name'
               style={styles.input}
+              onChangeText={handleChange("name")}
+              value={values.name}
+              placeholder='Name'
             />
+            {errors.name && touched.name && (
+              <Text style={styles.errorMessage}>{errors.name}</Text>
+            )}
 
+         
             <View>
               <Button
                 title='Add Categories'
@@ -80,6 +102,10 @@ const styles = StyleSheet.create({
     height: 50,
     marginHorizontal: 400,
   },
+  errorMessage: {
+    marginHorizontal: 400,
+    color: "red",
+  },
 });
 
-export default CategoriesForm;
+export default CategoriesForm ;
