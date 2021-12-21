@@ -103,11 +103,6 @@ const Orders = ({ navigation }) => {
             onChangeText={searchcustomerid}
             autoFocus={true}
           ></TextInput>
-          <Button
-            title='Search'
-            style={styles.button}
-            onPress={searchcustomerid}
-          ></Button>
         </View>
 
         {orders &&
