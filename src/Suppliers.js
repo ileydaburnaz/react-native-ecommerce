@@ -48,7 +48,7 @@ const Suppliers = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 150,
+    width: 200,
     backgroundColor: "black",
     marginTop: 15,
     marginBottom: 15,
