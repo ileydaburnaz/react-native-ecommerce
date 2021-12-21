@@ -53,7 +53,9 @@ const Categories = ({ navigation }) => {
                 <Button
                   title='Detail'
                   onPress={() =>
-                    navigation.navigate("CategoriesDetail", { categoriesItem: item })
+                    navigation.navigate("CategoriesDetail", {
+                      categoriesItem: item,
+                    })
                   }
                   style={styles.button}
                 />
@@ -72,13 +74,9 @@ const Categories = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-<<<<<<< HEAD
     marginTop: 15,
     marginBottom: 15,
     width: 200,
-=======
-    width: 150,
->>>>>>> 7849d1cc12ae039716024c804bdd897fb3d9d531
     backgroundColor: "black",
     marginTop: 15,
     marginBottom: 15,

@@ -13,7 +13,7 @@ import { Button } from "react-native-elements/dist/buttons/Button";
 const Orders = ({ navigation }) => {
   const [orders, setOrders] = useState([]);
   const [customerId, setCustomerId] = useState(true);
-  const [shipName, setShipName] = useState(true);
+  const [shipVia, setShipVia] = useState(true);
 
   useEffect(() => {
     getorders();
@@ -54,13 +54,13 @@ const Orders = ({ navigation }) => {
     }
   };
 
-  const sortshipname = () => {
-    setShipName(!shipName);
-    if (shipName == true) {
-      let sortdata = _.orderBy(orders, ["shipName"], ["asc"]);
+  const sortshipvia = () => {
+    setShipVia(!shipVia);
+    if (shipVia == true) {
+      let sortdata = _.orderBy(orders, ["shipVia"], ["asc"]);
       setOrders(sortdata);
     } else {
-      let sortdata = _.orderBy(orders, ["shipName"], ["desc"]);
+      let sortdata = _.orderBy(orders, ["shipVia"], ["desc"]);
       setOrders(sortdata);
     }
   };
@@ -91,8 +91,8 @@ const Orders = ({ navigation }) => {
             style={styles.button}
           ></Button>
           <Button
-            title='Sort By Ship Name'
-            onPress={sortshipname}
+            title='Sort By Ship Via'
+            onPress={sortshipvia}
             style={styles.button}
           ></Button>
         </View>
@@ -113,7 +113,9 @@ const Orders = ({ navigation }) => {
         {orders &&
           orders.map((item, key) => (
             <Card key={key}>
-              <Card.Title>{item.customerId}</Card.Title>
+              <Card.Title>
+                {item.customerId}-{item.shipVia}
+              </Card.Title>
               <Card.Divider />
               <View style={styles.btn}>
                 <Button
