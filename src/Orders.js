@@ -101,7 +101,6 @@ const Orders = ({ navigation }) => {
             placeholder=' Search By Customer Id'
             style={styles.input}
             onChangeText={searchcustomerid}
-            autoFocus={true}
           ></TextInput>
         </View>
 
@@ -109,7 +108,7 @@ const Orders = ({ navigation }) => {
           orders.map((item, key) => (
             <Card key={key}>
               <Card.Title>
-                {item.customerId}-{item.shipVia}
+                {item.customerId}--{item.shipVia}
               </Card.Title>
               <Card.Divider />
               <View style={styles.btn}>
@@ -135,7 +134,7 @@ const Orders = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 200,
+    width: 250,
     backgroundColor: "black",
     marginTop: 15,
     marginBottom: 15,
@@ -150,11 +149,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   input: {
+    width: 200,
     height: 42,
     margin: 15,
     borderWidth: 1,
     padding: 10,
     borderRadius: 12,
+    textAlign: "center",
   },
 });
 
