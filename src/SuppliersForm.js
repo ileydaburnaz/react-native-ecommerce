@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import { View, TextInput, StyleSheet } from "react-native";
 import { Button } from "react-native-elements";
+import * as Yup from "yup";
 
 const SuppliersForm = ({ navigation }) => {
   const addSuppliers = (values) => {
@@ -25,6 +26,13 @@ const SuppliersForm = ({ navigation }) => {
         alert("Suppliers added");
       });
   };
+
+  const validate = Yup.object().shape({
+    id: Yup.number().required("İd is required"),
+    companyName: Yup.string().required("Company Name is required"),
+    contactName: Yup.string().required("Contact Name is required"),
+    contactTitle: Yup.string().required("contact Title is required"),
+  });
   return (
     <>
       <Formik
@@ -35,8 +43,9 @@ const SuppliersForm = ({ navigation }) => {
           contactTitle: "",
         }}
         onSubmit={(values) => addSuppliers(values)}
+        validationSchema={validate}
       >
-        {({ handleChange, handleSubmit, values }) => (
+        {({ handleChange, handleSubmit, values, touched, isValid, errors }) => (
           <View>
             <TextInput
               onChangeText={handleChange("id")}
@@ -44,12 +53,18 @@ const SuppliersForm = ({ navigation }) => {
               placeholder='Id'
               style={styles.input}
             />
+            {errors.id && touched.id && (
+              <Text style={styles.errorMessage}>{errors.id}</Text>
+            )}
             <TextInput
               onChangeText={handleChange("companyName")}
               value={values.companyName}
               placeholder='Company Name'
               style={styles.input}
             />
+            {errors.companyName && touched.companyName && (
+              <Text style={styles.errorMessage}>{errors.companyName}</Text>
+            )}
 
             <TextInput
               onChangeText={handleChange("contactName")}
@@ -57,6 +72,9 @@ const SuppliersForm = ({ navigation }) => {
               placeholder='Contact Name'
               style={styles.input}
             />
+            {errors.contactName && touched.contactName && (
+              <Text style={styles.errorMessage}>{errors.contactName}</Text>
+            )}
 
             <TextInput
               onChangeText={handleChange("contactTitle")}
@@ -64,6 +82,9 @@ const SuppliersForm = ({ navigation }) => {
               placeholder='Contact Title'
               style={styles.input}
             />
+            {errors.contactTitle && touched.contactTitle && (
+              <Text style={styles.errorMessage}>{errors.contactTitle}</Text>
+            )}
             <View>
               <Button
                 title='Add Suppliers'
@@ -90,6 +111,10 @@ const styles = StyleSheet.create({
     margin: 9,
     height: 50,
     marginHorizontal: 400,
+  },
+  errorMessage: {
+    marginHorizontal: 400,
+    color: "red",
   },
 });
 

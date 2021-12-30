@@ -14,8 +14,6 @@ import OrdersForm from "./src/OrdersForm";
 import SuppliersForm from "./src/SuppliersForm";
 import CategoriesForm from "./src/CategoriesForm";
 
-
-
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (

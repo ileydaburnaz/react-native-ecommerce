@@ -7,12 +7,32 @@ const Suppliers = ({ navigation }) => {
   const [suppliers, setSuppliers] = useState([]);
 
   useEffect(() => {
+    getSuppliers();
+  }, []);
+
+  const getSuppliers = () => {
     fetch("https://northwind.vercel.app/api/suppliers")
       .then((res) => res.json())
       .then((data) => {
         setSuppliers(data);
       });
-  }, []);
+  };
+
+  const suppliersDelete = (id) => {
+    let requestOptions = {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    };
+    fetch("https://northwind.vercel.app/api/suppliers/" + id, requestOptions)
+      .then((res) => res.json())
+      .then((data) => {
+        alert("suppliers delete");
+        setSuppliers();
+      });
+  };
   return (
     <>
       <ScrollView>
@@ -38,6 +58,11 @@ const Suppliers = ({ navigation }) => {
                   }
                   style={styles.button}
                 />
+                <Button
+                  title='Delete'
+                  style={styles.button}
+                  onPress={() => suppliersDelete(item.id)}
+                />
               </View>
             </Card>
           ))}
@@ -48,6 +73,8 @@ const Suppliers = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   button: {
+    marginTop: 15,
+    marginBottom: 15,
     width: 200,
     backgroundColor: "black",
     marginTop: 15,
@@ -56,7 +83,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
   },
 });
 
